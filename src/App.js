@@ -57,15 +57,22 @@ function App() {
     <div className="app">
       <div className="buttons">
         <button onClick={handleRestart}>Restart</button>
-        <button onClick={handlePrev}>Prev</button>
-        <button onClick={handleNext}>Next</button>
+        <button onClick={handlePrev}
+        disabled={currentQuoteIndex ===0}
+        className={currentQuoteIndex ===0 ? "disabled" : ""}>
+        Prev
+        </button>
+        <button onClick={handleNext}
+          disabled={currentQuoteIndex === quotes.length -1}
+          className={currentQuoteIndex === quotes.length -1 ? "disabled" : ""}
+          >
+            Next
+          </button>
       </div>
       <div className="quote-box">
         <p className="quote">"{quote}"</p>
         <p className="author">- {author}</p>
       </div>
-
-      
     </div>
   );
 }
